@@ -11,16 +11,18 @@ class MovieDisplayPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final state = ref.watch(movieProvider);
-    return Scaffold(body: Builder(builder: (context) {
-      return switch (state) {
-        AsyncData(:final value as List<MoviesModel>) => ListView.builder(itemBuilder: (ctx, ind){
-          return MovieComponent(movie: value[ind]);
-        }, itemCount: value.length,),
-        // TODO: Handle this case.
-        AsyncError(:final error, :final stackTrace) => Center(child: Text('error: $error'),),
-        AsyncLoading() => Center(child: CircularProgressIndicator()),
-        _ => Center()
-      };
-    }));
+    return Scaffold(body: SafeArea(
+      child: Builder(builder: (context) {
+        return switch (state) {
+          AsyncData(:final value as List<MoviesModel>) => ListView.builder(itemBuilder: (ctx, ind){
+            return MovieComponent(movie: value[ind]);
+          }, itemCount: value.length,),
+          // TODO: Handle this case.
+          AsyncError(:final error, :final stackTrace) => Center(child: Text('error: $error'),),
+          AsyncLoading() => const Center(child: CircularProgressIndicator()),
+          _ => const Center()
+        };
+      }),
+    ));
   }
 }
