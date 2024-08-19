@@ -40,12 +40,16 @@ class MovieComponent extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    movie.title,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium
-                        ?.copyWith(fontSize: 18),
+                  SizedBox(
+                    width: 200,
+                    child: Text(
+                      overflow: TextOverflow.clip,
+                      movie.title,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium
+                          ?.copyWith(fontSize: 18),
+                    ),
                   ),
                   Text(
                     "On Year: " + movie.year.toString(),
