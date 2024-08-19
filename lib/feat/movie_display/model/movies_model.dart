@@ -1,7 +1,7 @@
 class MoviesModel {
   final String poster;
   final String title;
-  final String year;
+  final int year;
   final List<String> genre;
   final String website;
 

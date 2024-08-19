@@ -18,7 +18,7 @@ class MovieDisplayPage extends ConsumerWidget {
         }, itemCount: value.length,),
         // TODO: Handle this case.
         AsyncError(:final error, :final stackTrace) => Center(child: Text('error: $error'),),
-        AsyncLoading() => CircularProgressIndicator(),
+        AsyncLoading() => Center(child: CircularProgressIndicator()),
         _ => Center()
       };
     }));
