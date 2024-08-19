@@ -52,7 +52,7 @@ class MovieComponent extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    "On Year: " + movie.year.toString(),
+                    "On Year: ${movie.year}",
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
                           fontWeight: FontWeight.w700,
                         ),
